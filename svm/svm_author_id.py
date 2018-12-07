@@ -18,8 +18,8 @@ from email_preprocess import preprocess
 ### and testing datasets, respectively
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
-features_train = features_train[:len(features_train)/100]
-labels_train = labels_train[:len(labels_train)/100]
+# features_train = features_train[:len(features_train)/100]
+# labels_train = labels_train[:len(labels_train)/100]
 
 
 
@@ -31,8 +31,10 @@ clf.fit(features_train, labels_train)
 pred = clf.predict(features_test)
 print accuracy_score(labels_test, pred)
 
-for index in (10, 26, 50):
-    print index, ': ', pred[index]
+# for index in (10, 26, 50):
+#     print index, ': ', pred[index]
+
+print len([1 for i in pred if i == 1])
 #########################################################
 
 
