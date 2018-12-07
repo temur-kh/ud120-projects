@@ -31,6 +31,8 @@ clf.fit(features_train, labels_train)
 pred = clf.predict(features_test)
 print accuracy_score(labels_test, pred)
 
+for index in (10, 26, 50):
+    print index, ': ', pred[index]
 #########################################################
 
 
