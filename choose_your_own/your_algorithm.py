@@ -27,15 +27,15 @@ plt.ylabel("grade")
 plt.show()
 ################################################################################
 
-
-### your code here!  name your classifier object clf if you want the 
-### visualization code (prettyPicture) to show you the decision boundary
-
-
-
-
-
-
+from sklearn.metrics import accuracy_score
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
+clf = KNeighborsClassifier()
+clf.fit(features_train, labels_train)
+pred = clf.predict(features_test)
+print accuracy_score(labels_test, pred)
 
 
 try:
