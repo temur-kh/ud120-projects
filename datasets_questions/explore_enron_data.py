@@ -24,8 +24,8 @@ with open("../final_project/poi_names.txt", "r") as file:
     lines = file.readlines()
     for i in range(2, len(lines)):
         name = lines[i].split(')')[1].strip().replace(',', '').upper()
-        print name
         names.append(name)
 
-print len(names)
-
+for key in enron_data:
+    if key.startswith('Prentice James'.upper()):
+        print enron_data[key]['total_stock_value']
