@@ -17,6 +17,15 @@
 
 import pickle
 
-enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
+enron_data = dict(pickle.load(open("../final_project/final_project_dataset.pkl", "r")))
+# print enron_data.keys()
+names = []
+with open("../final_project/poi_names.txt", "r") as file:
+    lines = file.readlines()
+    for i in range(2, len(lines)):
+        name = lines[i].split(')')[1].strip().replace(',', '').upper()
+        print name
+        names.append(name)
 
+print len(names)
 
