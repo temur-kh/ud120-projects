@@ -18,7 +18,7 @@
 import pickle
 
 enron_data = dict(pickle.load(open("../final_project/final_project_dataset.pkl", "r")))
-# print enron_data.keys()
+
 names = []
 with open("../final_project/poi_names.txt", "r") as file:
     lines = file.readlines()
@@ -27,5 +27,5 @@ with open("../final_project/poi_names.txt", "r") as file:
         names.append(name)
 
 for key in enron_data:
-    if key.startswith('Prentice James'.upper()):
-        print enron_data[key]['total_stock_value']
+    if key.startswith('Colwell Wesley'.upper()):
+        print enron_data[key]['from_this_person_to_poi']
