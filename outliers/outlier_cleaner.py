@@ -10,11 +10,11 @@ def outlierCleaner(predictions, ages, net_worths):
         Return a list of tuples named cleaned_data where 
         each tuple is of the form (age, net_worth, error).
     """
-    
-    cleaned_data = []
+    from math import fabs
 
-    ### your code goes here
-
-    
+    cleaned_data = [(ages[i][0], net_worths[i][0], fabs(net_worths[i][0] - predictions[i][0]))
+                    for i in range(len(predictions))]
+    cleaned_data.sort(key=lambda x: x[2])
+    cleaned_data = cleaned_data[:int(len(cleaned_data)*0.9)]
     return cleaned_data
 
