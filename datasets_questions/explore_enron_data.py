@@ -26,11 +26,9 @@ with open("../final_project/poi_names.txt", "r") as file:
         name = lines[i].split(')')[1].strip().replace(',', '').upper()
         names.append(name)
 
-salary_cnt = email_cnt = 0
+pays_cnt = 0
 for key in enron_data:
-    if enron_data[key]['salary'] != 'NaN':
-        salary_cnt += 1
-    if enron_data[key]['email_address'] != 'NaN':
-        email_cnt += 1
+    if enron_data[key]['total_payments'] == 'NaN':
+        pays_cnt += 1
 
-print salary_cnt, email_cnt
+print pays_cnt * 100.0 / len(enron_data)
