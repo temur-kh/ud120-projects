@@ -27,5 +27,5 @@ with open("../final_project/poi_names.txt", "r") as file:
         names.append(name)
 
 for key in enron_data:
-    if key.startswith('Colwell Wesley'.upper()):
-        print enron_data[key]['from_this_person_to_poi']
+    if key.startswith('Lay'.upper()) or key.startswith('Skilling'.upper()) or key.startswith('Fastow'.upper()):
+        print key, enron_data[key]['total_payments']
