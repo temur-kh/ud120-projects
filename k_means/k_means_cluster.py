@@ -50,25 +50,20 @@ feature_1 = "salary"
 feature_2 = "exercised_stock_options"
 feature_3 = "total_payments"
 poi  = "poi"
-features_list = [poi, feature_1, feature_2, feature_3]
+features_list = [poi, feature_1, feature_2]
 data = featureFormat(data_dict, features_list )
 poi, finance_features = targetFeatureSplit( data )
 
-min_num = 1e18
-max_num = -1
-for key in data_dict:
-    if data_dict[key]['salary'] != 'NaN':
-        min_num = min(min_num, data_dict[key]['salary'])
-        max_num = max(max_num, data_dict[key]['salary'])
 
-print min_num, max_num
+from sklearn.preprocessing import MinMaxScaler
+import numpy as np
+scaler = MinMaxScaler().fit(finance_features)
+finance_features = scaler.transform(finance_features)
+print scaler.transform(np.array([[200000., 1000000.]]))
 
-### in the "clustering with 3 features" part of the mini-project,
-### you'll want to change this line to 
-### for f1, f2, _ in finance_features:
-### (as it's currently written, the line below assumes 2 features)
-for f1, f2, f3 in finance_features:
-    plt.scatter( f1, f2, f3 )
+
+for f1, f2 in finance_features:
+    plt.scatter( f1, f2 )
 plt.show()
 
 
