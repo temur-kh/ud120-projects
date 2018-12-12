@@ -57,9 +57,9 @@ poi, finance_features = targetFeatureSplit( data )
 min_num = 1e18
 max_num = -1
 for key in data_dict:
-    if data_dict[key]['exercised_stock_options'] != 'NaN':
-        min_num = min(min_num, data_dict[key]['exercised_stock_options'])
-        max_num = max(max_num, data_dict[key]['exercised_stock_options'])
+    if data_dict[key]['salary'] != 'NaN':
+        min_num = min(min_num, data_dict[key]['salary'])
+        max_num = max(max_num, data_dict[key]['salary'])
 
 print min_num, max_num
 
