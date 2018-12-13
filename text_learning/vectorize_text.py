@@ -47,7 +47,7 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
             email = open(path, "r")
             text = parseOutText(email)
 
-            for word in ["sara", "shackleton", "chris", "germani"]:
+            for word in ["sara", "shackleton", "chris", "germani", "sshacklensf", "cgermannsf"]:
                 text = text.replace(word, "")
 
             word_data.append(text)
