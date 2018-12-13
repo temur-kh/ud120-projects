@@ -27,16 +27,14 @@ def parseOutText(f):
         ### remove punctuation
         text_string = content[1].translate(string.maketrans("", ""), string.punctuation)
 
-        ### project part 2: comment out the line below
-        words = text_string
-
-        ### split the text string into individual words, stem each word,
-        ### and append the stemmed word to words (make sure there's a single
-        ### space between each stemmed word)
-        
-
-
-
+        text_string = text_string.replace("  ", " ").replace("\n", "")
+        word_list = text_string.split(" ")
+        from nltk.stem import SnowballStemmer
+        stemmer = SnowballStemmer("english")
+        new_list = []
+        for word in word_list:
+            new_list.append(stemmer.stem(word))
+        words = " ".join(new_list)
 
     return words
 
